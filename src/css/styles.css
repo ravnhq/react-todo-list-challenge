@@ -88,6 +88,7 @@ hr {
 
 .tasks {
   overflow-y: scroll;
+  width: 100%;
 }
 
 .column-header {
@@ -106,6 +107,18 @@ hr {
   margin: 5px 0;
   width: 80%;
   border: 1px solid;
+}
+
+.low-priority{
+  border: 1px green solid;
+}
+
+.medium-priority{
+  border: 1px yellow solid;
+}
+
+.high-priority{
+  border: 1px red solid;
 }
 
 .task-title {
