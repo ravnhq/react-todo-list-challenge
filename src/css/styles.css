@@ -1,0 +1,230 @@
+body {
+  font-family: monospace;
+  background-color: #0e0d0d;
+  color: rgb(197, 197, 197);
+  margin: 0px;
+}
+
+hr {
+  border: 1px gray solid;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 75vh;
+  justify-content: space-around;
+}
+
+.section {
+  width: 40%;
+  border: 2px gray solid;
+}
+
+.footer {
+  display: flex;
+
+  position: absolute;
+  bottom: 3vh;
+  border-top: 2px gray solid;
+  width: 100%;
+}
+
+.tasks-done {
+  position: inherit;
+  right: 5px;
+  top: 2px;
+}
+
+.arrow-section {
+  display: flex;
+  width: 5%;
+  font-size: xx-large;
+  align-self: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.mode-status {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: white;
+  color: #0e0d0d;
+  padding: 3px 10px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+
+  width: 60%;
+  margin-bottom: 15px;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.hide {
+  display: none;
+}
+
+.form-element {
+  line-height: 2.5rem;
+  width: 100%;
+  font-family: monospace;
+}
+
+.textarea {
+  resize: vertical;
+  line-height: 1.5rem;
+  height: 6rem;
+}
+
+.select {
+  width: 100%;
+  padding: 1em;
+}
+
+.button {
+  height: 2rem;
+  width: 40%;
+}
+
+.tasks {
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.column-header {
+  width: 100%;
+  border-bottom: 1px gray solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.column-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task {
+  margin: 5px 0;
+  width: 80%;
+  border: 1px solid;
+}
+
+.low-priority {
+  border: 1px green solid;
+}
+
+.medium-priority {
+  border: 1px yellow solid;
+}
+
+.high-priority {
+  border: 1px red solid;
+}
+
+.task-title {
+  margin: 10px 10px 0;
+}
+
+.task-content {
+  margin: 0px 10px 10px;
+  width: 95%;
+  word-wrap: break-word;
+}
+
+.task-footer {
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 1px solid;
+  line-height: 1.5rem;
+}
+
+.task-action {
+  width: 100%;
+  text-align: center;
+}
+
+.task-action:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.error-messages {
+  color: red;
+}
+
+.vl {
+  border-left: 1px solid;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(181, 181, 181) rgb(20, 20, 20);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(20, 20, 20);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(190, 190, 190);
+  border-radius: 0px;
+  border: 2px outset rgb(20, 20, 20);
+}
+
+#clear-button {
+  right: 10px;
+  border: 1px rgb(161, 0, 0) solid;
+  position: absolute;
+  padding: 5px;
+}
+
+#clear-button:hover {
+  background-color: rgb(161, 0, 0);
+  cursor: pointer;
+}

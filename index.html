@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO-APP</title>
+    <link rel="stylesheet" href="./src/css/styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div>
+        <h1>Nice TODO App</h1>
+      </div>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="content">
+        <div class="section column">
+          <h2 id="mode-title">Add Task</h2>
+          <form class="column task-form" id="task-create-form">
+            <input
+              type="text"
+              placeholder="Task title"
+              class="form-element"
+              name="task-title"
+              required
+            />
+            <textarea
+              placeholder="Task description (optional)"
+              class="form-element textarea"
+              name="task-description"
+            ></textarea>
+            <select name="task-priority" class="form-element select" required>
+              <option>Choose a priority</option>
+              <option value="1">Low</option>
+              <option value="2">Medium</option>
+              <option value="3">High</option>
+            </select>
+            <div class="error-messages"></div>
+            <input type="submit" value="Add" class="button" id="form-button" />
+          </form>
+          <div class="link hide" id="cancel-link">Cancel</div>
+        </div>
+        <div class="arrow-section"><h1 id="arrow-content">></h1></div>
+        <div class="section column">
+          <div class="column-header">
+            <div class="column-title">
+              <h2>TODO</h2>
+            </div>
+            <div id="clear-button">Clear</div>
+          </div>
+          <div class="column-body tasks" id="tasks-container"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="mode-status" id="mode-status">CREATE_MODE</div>
+      <div class="tasks-done" id="tasks-done-msg">asdsd</div>
+    </div>
+  </body>
+  <script src="./src/js/storage.js"></script>
+  <script src="./src/js/script.js"></script>
+</html>
