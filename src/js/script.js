@@ -7,6 +7,8 @@ const modeStorage = new StorageWrapper('mode');
 
 const selectedTaskStorage = new StorageWrapper('selected_task', true);
 
+const taskStorage = new StorageWrapper('tasks', true);
+
 const updateElements = (task = null) => {
   let modeTitleElement = document.getElementById('mode-title');
   let arrowElement = document.getElementById('arrow-content');
@@ -46,8 +48,8 @@ const deleteTask = (id) => {
 document.addEventListener('DOMContentLoaded', () => {
   const selectedTaskId = selectedTaskStorage.getValue();
   updateElements(selectedTaskId);
-  if (localStorage.getItem('tasks') === null) {
-    localStorage.setItem('tasks', JSON.stringify([]));
+  if (taskStorage.getValue() === null) {
+    taskStorage.setValue([]);
   } else {
     fetchAndRenderTasks();
   }
@@ -100,7 +102,7 @@ const renderTasksOnElementId = (tasks, elementId) => {
 };
 
 const fetchTasks = () => {
-  return JSON.parse(localStorage.getItem('tasks'));
+  return taskStorage.getValue();
 };
 
 const renderTasks = (tasks) => {
@@ -144,7 +146,7 @@ const submitCreateTask = (tasks, task) => {
     if (!stillCreate) return;
   }
   task.id = newTaskId;
-  tasks.push(task);
+  tasks.unshift(task);
 };
 
 document
@@ -174,14 +176,14 @@ document
     }
 
     // save
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    taskStorage.setValue(tasks);
     renderTasks(tasks);
 
     formElement.reset();
   });
 
 document.getElementById('clear-button').addEventListener('click', (event) => {
-  localStorage.setItem('tasks', JSON.stringify([]));
+  taskStorage.setValue([])
   fetchAndRenderTasks();
 });
 
