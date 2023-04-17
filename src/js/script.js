@@ -11,7 +11,6 @@ const taskStorage = new StorageWrapper('tasks', true);
 
 const tasksDoneStorage = new StorageWrapper('tasks_done');
 
-
 const updateElements = (task = null) => {
   let modeTitleElement = document.getElementById('mode-title');
   let arrowElement = document.getElementById('arrow-content');
@@ -92,7 +91,7 @@ const renderTasksOnElementId = (tasks, elementId) => {
   const taskContainerElement = document.getElementById(elementId);
   const tasksHTML = tasks
     .sort((a, b) => b.priority - a.priority)
-    .filter(item => !item.done)
+    .filter((item) => !item.done)
     .reduce(
       (taskString, task) =>
         taskString +
@@ -127,12 +126,12 @@ const fetchTasks = () => {
 };
 
 const getTasksDone = (tasks) => {
-  return tasks.filter(task => task.done).length
-}
+  return tasks.filter((task) => task.done).length;
+};
 
 const renderTasks = (tasks) => {
   renderTasksOnElementId(tasks, 'tasks-container');
-  let tasksDone = getTasksDone(tasks)
+  let tasksDone = getTasksDone(tasks);
   updateTasksDoneMessage(tasksDone, tasks.length);
 };
 
