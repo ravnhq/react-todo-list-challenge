@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>TODO list</title>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="taskAction">
+        <h1>TODO List Practice</h1>
+        <div class="taskFormContainer">
+          <form class="taskForm" name="taskForm" action="">
+            <div>
+              <label for="taskName">Name of the task</label>
+              <input required type="text" name="taskName" id="" />
+            </div>
+            <div>
+              <label for="taskHours">Number of hours</label>
+              <select required name="taskHours" id="">
+                <option value="1">1 hour</option>
+                <option value="2">2 hour</option>
+                <option value="3">3 hour</option>
+                <option value="4">5 hour</option>
+              </select>
+            </div>
+            <div>
+              <label for="taskDescription">Description of the task</label>
+              <textarea
+                required
+                name="taskDescription"
+                id=""
+                cols="30"
+              ></textarea>
+            </div>
+            <div>
+              <button class="button" type="submit">Aceptar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="taskList">
+        <h2>List of tasks</h2>
+        <button class="button">Clear</button>
+        <div class="taskColumn"></div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
