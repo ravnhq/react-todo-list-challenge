@@ -166,6 +166,8 @@ hr {
 
 .task-content {
   margin: 0px 10px 10px;
+  width: 95%;
+  word-wrap: break-word;
 }
 
 .task-footer {
