@@ -1,5 +1,6 @@
 const form = document.querySelector(".taskForm");
 const list = document.querySelector(".taskColumn");
+const countdownH3 = document.querySelector(".taskCountdown");
 const clear = () => {
   form.elements.taskName.value = "";
   form.elements.taskHours.value = "";
@@ -40,6 +41,7 @@ const done = (id) => {
 
 //ready
 const newtask = () => {
+  let countdown = JSON.parse(localStorage.getItem("countdown"));
   let tasks = JSON.parse(localStorage.getItem("Tasks"));
   let newTask = tasks.slice(-1);
   list.appendChild(
@@ -50,13 +52,24 @@ const newtask = () => {
       tasks.length - 1
     )
   );
+  if (!countdown) {
+    localStorage.setItem("countdown", 1);
+    countdownH3.textContent = `${tasks.length} / 1 Tasks Completed`;
+    return;
+  }
+  countdown += 1;
+  countdownH3.textContent = `${
+    countdown - tasks.length
+  } / ${countdown} Tasks Completed`;
+  localStorage.setItem("countdown", countdown);
 };
 
 //ready
 const tasks = () => {
   let tasks = JSON.parse(localStorage.getItem("Tasks"));
+  let countdown = JSON.parse(localStorage.getItem("countdown"));
   list.innerHTML = ``;
-  if (tasks === null) {
+  if (!tasks) {
     return;
   }
   const fragment = new DocumentFragment();
@@ -66,6 +79,20 @@ const tasks = () => {
     );
   });
   list.appendChild(fragment);
+  if (!countdown) {
+    return;
+  }
+  console.log(
+    countdown - tasks.length,
+    "resta",
+    countdown,
+    "countdown",
+    tasks.length,
+    "length"
+  );
+  countdownH3.textContent = `${
+    countdown - tasks.length
+  } / ${countdown} Tasks Completed`;
 };
 
 const clearButton = document.querySelector(".clearButton");
