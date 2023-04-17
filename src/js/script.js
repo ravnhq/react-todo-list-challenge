@@ -163,7 +163,7 @@ const submitEditTask = (tasks, task) => {
 const submitCreateTask = (tasks, task) => {
   const newTaskId = getNewTaskId();
 
-  let existTask = !!tasks.find((item) => item.title === task.title);
+  let existTask = !!tasks.find((item) => item.title === task.title && !item.done);
   if (existTask) {
     let stillCreate = confirm(
       "There's a task with the same title. Do you still want to create it?"
