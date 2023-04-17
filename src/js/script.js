@@ -42,7 +42,11 @@ const editTask = (id) => {
 };
 
 const deleteTask = (id) => {
-  console.log('Delete', id);
+  let tasks = taskStorage.getValue();
+  let taskIndex = tasks.findIndex((item) => item.id === id);
+
+  tasks.splice(taskIndex, 1);
+  taskStorage.setValue(tasks, renderTasks, tasks);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
