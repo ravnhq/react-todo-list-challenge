@@ -34,7 +34,6 @@ const done = (id) => {
   let key = id;
   let tasks = JSON.parse(localStorage.getItem("Tasks"));
   tasks.splice(id, 1);
-  //let result = [...tasks.slice(0, id), ...tasks.slice(id + 1)];
   localStorage.setItem("Tasks", JSON.stringify(tasks));
   document.dispatchEvent(deleteElement);
 };
@@ -43,27 +42,6 @@ const done = (id) => {
 const newtask = () => {
   let tasks = JSON.parse(localStorage.getItem("Tasks"));
   let newTask = tasks.slice(-1);
-  // let div = document.createElement("div");
-  // div.classList.add("task");
-  // div.innerHTML = `
-  //             <div>
-  //               <p class="taskHeader">${newTask[0].name}</p>
-  //               <hr/>
-  //             </div>
-  //             <p class="taskHour">The number of hours to complete the task is: ${
-  //               newTask[0].hours
-  //             }</p>
-  //             <p class="taskDescription">The description of the task is: ${
-  //               newTask[0].description
-  //             }</p>
-  //             <hr/>
-  //             <div>
-  //               <button class="button taskDone" onclick="done(${
-  //                 tasks.length - 1
-  //               })"  name="taskDone" data-id="${
-  //   tasks.length - 1
-  // }">Hecho</button>
-  //             </div>`;
   list.appendChild(
     makeTask(
       newTask[0].name,
@@ -88,13 +66,6 @@ const tasks = () => {
     );
   });
   list.appendChild(fragment);
-  const doneButtons = document.querySelectorAll(".taskDone");
-  doneButtons.forEach((button) =>
-    button.addEventListener("click", (e) => {
-      console.log(e.target.dataset.id, "asd");
-      done(e.target.dataset.id);
-    })
-  );
 };
 
 const clearButton = document.querySelector(".clearButton");
@@ -121,7 +92,7 @@ const makeTask = (name, hours, description, key) => {
                  <p class="taskDescription">The description of the task is: ${description}</p>
                   <hr/>
                   <div>
-                    <button class="button taskDone" name="taskDone" data-id="${key}"">Hecho</button>
+                    <button class="button taskDone" onClick="done(${key})" name="taskDone" data-id="${key}"">Hecho</button>
                   </div>`;
   return div;
 };
