@@ -15,10 +15,10 @@
   *::-webkit-scrollbar {
     width: 16px;
   }
-
+/*
   *::-webkit-scrollbar-track {
-    /*background: hsl(332, 23%, 50%);*/
-  }
+    background: hsl(332, 23%, 50%);
+  }*/
 
   *::-webkit-scrollbar-thumb {
     background-color: hsl(332, 76%, 41%);
@@ -41,18 +41,18 @@ body{
     align-items: center;
     justify-content: space-between;
 }
-.taskFormContainer{
-    /* background-color: hsl(332, 23%, 50%); */
-    /* display: flex;
+/* .taskFormContainer{
+    background-color: hsl(332, 23%, 50%); 
+    display: flex;
     margin: 3rem 0;
     flex-direction: column;
     align-items: center;
     border: black;
-    max-width: 420px; */
-    /* display: grid;
+    max-width: 420px;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr; */
-}
+    grid-template-rows: 1fr 1fr 1fr;
+} */
 .taskForm{
     display: grid;
     grid-template-columns: 1fr ;
