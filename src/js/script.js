@@ -165,6 +165,11 @@ document
       description: formInnerElements['task-description'].value,
       priority: parseInt(formInnerElements['task-priority'].value),
     };
+
+    if (Number.isNaN(task.priority)) {
+      alert("Please assign the priority to the task.")
+      return;
+    }
     console.log('Sbumit mode', tasks, task);
 
     if (currentMode === EDIT_MODE) {
