@@ -1,0 +1,25 @@
+button.remove-todo {
+    font-size: 12px;
+    padding: 6px 10px;
+    margin-left:10px;
+}
+
+button.remove-todo {
+    width: 30px;
+    height: 30px;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+body{
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-form{
+    display: inline-flex;
+    justify-items: center;
+    align-items: center;
+}
