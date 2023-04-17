@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSFrontend - TODO App</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+    <script src="https://kit.fontawesome.com/e9a302b6a5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>📋 TODO App</h1>
+    <form class="task-form">
+        <input type="text" required name="taskName" autofocus placeholder="Create a new todo...">
+        <button type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="icon">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </button>
+    </form>
+    <ol class="tasks-list"></ol>
+    <div class="buttons">
+        <button id="complete-all-btn">Complete All</button>
+        <button id="clear-completed-btn">Clear Completed</button>
+    </div>
+    <script src="dist/index.js"></script>
+</body>
+
+</html>
