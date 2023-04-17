@@ -29,7 +29,7 @@ hr {
   border: 2px gray solid;
 }
 
-.footer{
+.footer {
   display: flex;
   position: absolute;
   bottom: 3vh;
@@ -141,15 +141,15 @@ hr {
   border: 1px solid;
 }
 
-.low-priority{
+.low-priority {
   border: 1px green solid;
 }
 
-.medium-priority{
+.medium-priority {
   border: 1px yellow solid;
 }
 
-.high-priority{
+.high-priority {
   border: 1px red solid;
 }
 
@@ -208,10 +208,7 @@ hr {
   border: 2px outset rgb(20, 20, 20);
 }
 
-.column-title {
-}
-
-#clear-button{
+#clear-button {
   right: 10px;
   border: 1px rgb(161, 0, 0) solid;
   position: absolute;

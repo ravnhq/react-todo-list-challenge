@@ -1,33 +1,32 @@
-const CREATE_MODE = "create";
-const EDIT_MODE = "edit";
+const CREATE_MODE = 'create';
+const EDIT_MODE = 'edit';
 
 let mode = CREATE_MODE;
 
-const modeStorage = new StorageWrapper("mode");
+const modeStorage = new StorageWrapper('mode');
 
-const selectedTaskStorage = new StorageWrapper("selected_task", true);
+const selectedTaskStorage = new StorageWrapper('selected_task', true);
 
 const updateElements = (task = null) => {
-  let modeTitleElement = document.getElementById("mode-title");
-  let arrowElement = document.getElementById("arrow-content");
-  let formButtonElement = document.getElementById("form-button");
-  let cancelLinkElement = document.getElementById("cancel-link");
-  let modeStatusElement = document.getElementById("mode-status");
+  let modeTitleElement = document.getElementById('mode-title');
+  let arrowElement = document.getElementById('arrow-content');
+  let formButtonElement = document.getElementById('form-button');
+  let cancelLinkElement = document.getElementById('cancel-link');
+  let modeStatusElement = document.getElementById('mode-status');
 
   if (modeStorage.getValue() === EDIT_MODE) {
     modeTitleElement.innerText = `Editing Task: ${task.title}`;
-    arrowElement.innerText = "<";
+    arrowElement.innerText = '<';
     fillTaskForm(task);
-    formButtonElement.value = "Edit";
-    cancelLinkElement.classList.remove("hide");
-    modeStatusElement.innerText = "EDIT_MODE"
-    
+    formButtonElement.value = 'Edit';
+    cancelLinkElement.classList.remove('hide');
+    modeStatusElement.innerText = 'EDIT_MODE';
   } else {
-    modeTitleElement.innerText = "Add Task";
-    arrowElement.innerText = ">";
-    formButtonElement.value = "Add";
-    cancelLinkElement.classList.add("hide");
-    modeStatusElement.innerText = "CREATE_MODE"
+    modeTitleElement.innerText = 'Add Task';
+    arrowElement.innerText = '>';
+    formButtonElement.value = 'Add';
+    cancelLinkElement.classList.add('hide');
+    modeStatusElement.innerText = 'CREATE_MODE';
   }
 };
 
@@ -41,30 +40,30 @@ const editTask = (id) => {
 };
 
 const deleteTask = (id) => {
-  console.log("Delete", id);
+  console.log('Delete', id);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   const selectedTaskId = selectedTaskStorage.getValue();
   updateElements(selectedTaskId);
-  if (localStorage.getItem("tasks") === null) {
-    localStorage.setItem("tasks", JSON.stringify([]));
+  if (localStorage.getItem('tasks') === null) {
+    localStorage.setItem('tasks', JSON.stringify([]));
   } else {
     fetchAndRenderTasks();
   }
 });
 
 const priorityMap = {
-  1: "low",
-  2: "medium",
-  3: "high",
+  1: 'low',
+  2: 'medium',
+  3: 'high',
 };
 
 const fillTaskForm = (task) => {
-  let formInnerElements = document.getElementById("task-create-form").elements;
-  formInnerElements["task-title"].value = task.title;
-  formInnerElements["task-description"].value = task.description;
-  formInnerElements["task-priority"].value = task.priority;
+  let formInnerElements = document.getElementById('task-create-form').elements;
+  formInnerElements['task-title'].value = task.title;
+  formInnerElements['task-description'].value = task.description;
+  formInnerElements['task-priority'].value = task.priority;
 };
 
 const renderTasksOnElementId = (tasks, elementId) => {
@@ -95,17 +94,17 @@ const renderTasksOnElementId = (tasks, elementId) => {
     </div>
   </div>
   `,
-      ""
+      ''
     );
   taskContainerElement.innerHTML = tasksHTML;
 };
 
 const fetchTasks = () => {
-  return JSON.parse(localStorage.getItem("tasks"));
+  return JSON.parse(localStorage.getItem('tasks'));
 };
 
 const renderTasks = (tasks) => {
-  renderTasksOnElementId(tasks, "tasks-container");
+  renderTasksOnElementId(tasks, 'tasks-container');
 };
 
 const fetchAndRenderTasks = () => {
@@ -149,8 +148,8 @@ const submitCreateTask = (tasks, task) => {
 };
 
 document
-  .getElementById("task-create-form")
-  .addEventListener("submit", (event) => {
+  .getElementById('task-create-form')
+  .addEventListener('submit', (event) => {
     event.preventDefault();
 
     const formElement = event.target;
@@ -160,11 +159,11 @@ document
     let tasks = fetchTasks();
 
     let task = {
-      title: formInnerElements["task-title"].value,
-      description: formInnerElements["task-description"].value,
-      priority: parseInt(formInnerElements["task-priority"].value),
+      title: formInnerElements['task-title'].value,
+      description: formInnerElements['task-description'].value,
+      priority: parseInt(formInnerElements['task-priority'].value),
     };
-    console.log("Sbumit mode", tasks, task);
+    console.log('Sbumit mode', tasks, task);
 
     if (currentMode === EDIT_MODE) {
       // edit
@@ -175,19 +174,19 @@ document
     }
 
     // save
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     renderTasks(tasks);
 
     formElement.reset();
   });
 
-document.getElementById("clear-button").addEventListener("click", (event) => {
-  localStorage.setItem("tasks", JSON.stringify([]));
+document.getElementById('clear-button').addEventListener('click', (event) => {
+  localStorage.setItem('tasks', JSON.stringify([]));
   fetchAndRenderTasks();
 });
 
-document.getElementById("cancel-link").addEventListener("click", (event) => {
-  let formElement = document.getElementById("task-create-form")
+document.getElementById('cancel-link').addEventListener('click', (event) => {
+  let formElement = document.getElementById('task-create-form');
   formElement.reset();
-  modeStorage.setValue(CREATE_MODE, updateElements)
-})
+  modeStorage.setValue(CREATE_MODE, updateElements);
+});

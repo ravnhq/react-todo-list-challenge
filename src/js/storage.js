@@ -12,7 +12,7 @@ class StorageWrapper {
   setValue(value, cb = null, ...params) {
     value = this._stringifyValue ? JSON.stringify(value) : value;
     localStorage.setItem(this._key, value);
-    console.log("params", params)
+    console.log('params', params);
     if (cb) cb(...params);
   }
 }
