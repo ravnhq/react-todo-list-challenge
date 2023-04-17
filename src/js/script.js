@@ -9,6 +9,9 @@ const selectedTaskStorage = new StorageWrapper('selected_task', true);
 
 const taskStorage = new StorageWrapper('tasks', true);
 
+const tasksDoneStorage = new StorageWrapper('tasks_done');
+
+
 const updateElements = (task = null) => {
   let modeTitleElement = document.getElementById('mode-title');
   let arrowElement = document.getElementById('arrow-content');
@@ -32,6 +35,11 @@ const updateElements = (task = null) => {
   }
 };
 
+const updateTasksDoneMessage = (doneTasks, allTasks) => {
+  let taskDoneMessageElement = document.getElementById('tasks-done-msg');
+  taskDoneMessageElement.innerText = `${doneTasks}/${allTasks} tasks done`;
+};
+
 const editTask = (id) => {
   const task = getTaskById(id);
 
@@ -45,8 +53,12 @@ const deleteTask = (id) => {
   let tasks = taskStorage.getValue();
   let taskIndex = tasks.findIndex((item) => item.id === id);
 
-  tasks.splice(taskIndex, 1);
+  let tasksDone = tasksDoneStorage.getValue();
+
+  tasks[taskIndex].done = true;
   taskStorage.setValue(tasks, renderTasks, tasks);
+
+  tasksDoneStorage.setValue(tasksDone + 1);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -56,6 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     taskStorage.setValue([]);
   } else {
     fetchAndRenderTasks();
+  }
+
+  if (tasksDoneStorage.getValue() === null) {
+    tasksDoneStorage.setValue(0);
   }
 });
 
@@ -76,6 +92,7 @@ const renderTasksOnElementId = (tasks, elementId) => {
   const taskContainerElement = document.getElementById(elementId);
   const tasksHTML = tasks
     .sort((a, b) => b.priority - a.priority)
+    .filter(item => !item.done)
     .reduce(
       (taskString, task) =>
         taskString +
@@ -109,8 +126,14 @@ const fetchTasks = () => {
   return taskStorage.getValue();
 };
 
+const getTasksDone = (tasks) => {
+  return tasks.filter(task => task.done).length
+}
+
 const renderTasks = (tasks) => {
   renderTasksOnElementId(tasks, 'tasks-container');
+  let tasksDone = getTasksDone(tasks)
+  updateTasksDoneMessage(tasksDone, tasks.length);
 };
 
 const fetchAndRenderTasks = () => {
@@ -171,7 +194,7 @@ document
     };
 
     if (Number.isNaN(task.priority)) {
-      alert("Please assign the priority to the task.")
+      alert('Please assign the priority to the task.');
       return;
     }
     console.log('Sbumit mode', tasks, task);
@@ -192,7 +215,7 @@ document
   });
 
 document.getElementById('clear-button').addEventListener('click', (event) => {
-  taskStorage.setValue([])
+  taskStorage.setValue([]);
   fetchAndRenderTasks();
 });
 

@@ -31,10 +31,17 @@ hr {
 
 .footer {
   display: flex;
+
   position: absolute;
   bottom: 3vh;
   border-top: 2px gray solid;
   width: 100%;
+}
+
+.tasks-done {
+  position: inherit;
+  right: 5px;
+  top: 2px;
 }
 
 .arrow-section {
