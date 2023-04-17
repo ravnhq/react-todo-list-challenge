@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Local Storage Challenge | Todo app</title>
+</head>
+<body>
+  <h1>TODO LIST </h1>
+  <h3>Add new Todo</h3>
+  <form class="todo-form">
+    <label for='todo-name'>Name&nbsp;&nbsp;</label>
+    <input type='text' id='todo-name' name='name'>
+    <button type='submit'>+</button>
+  </form>
+  <hr>
+
+  <div>
+    <h3>Pending To-Dos</h3>
+    <ul id='pending-todo-list'>
+  </div>
+
+  <div>
+    <h3>Done To-Dos</h3>
+    <ul id='done-todo-list'></ul>
+  </div>
+  </ul>
+  <hr>
+  <span>Todos Status : <strong><span id='done-span'></span> of <span id='all-span'></span> Tasks are done</span></strong><br/><br/>
+  <button id='remove-done-btn'>Remove Done</button>
+  <button id='remove-all-btn'>Delete All</button>
+</body>
+<script src="./app/todo.js"></script>
+</html>
