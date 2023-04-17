@@ -123,12 +123,25 @@ const submitEditTask = (tasks, task) => {
 
   let index = tasks.findIndex((item) => item.id === selectedTask.id);
 
-
-
   if (index === -1) return;
 
   Object.assign(tasks[index], task);
   modeStorage.setValue(CREATE_MODE, updateElements);
+};
+
+const submitCreateTask = (tasks, task) => {
+  const newTaskId = getNewTaskId();
+
+  let existTask = !!tasks.find((item) => item.title === task.title);
+  if (existTask) {
+    let stillCreate = confirm(
+      "There's a task with the same title. Do you still want to create it?"
+    );
+
+    if (!stillCreate) return;
+  }
+  task.id = newTaskId;
+  tasks.push(task);
 };
 
 document
@@ -140,33 +153,21 @@ document
     const formInnerElements = formElement.elements;
     const currentMode = modeStorage.getValue();
 
-    
     let tasks = fetchTasks();
-    
+
     let task = {
       title: formInnerElements["task-title"].value,
       description: formInnerElements["task-description"].value,
       priority: parseInt(formInnerElements["task-priority"].value),
     };
-    console.log("Sbumit mode", tasks, task)
+    console.log("Sbumit mode", tasks, task);
 
     if (currentMode === EDIT_MODE) {
       // edit
       submitEditTask(tasks, task);
     } else {
-      const newTaskId = getNewTaskId();
-
-      let existTask = !!tasks.find((item) => item.title === task.title);
-      if (existTask) {
-        let stillCreate = confirm(
-          "There's a task with the same title. Do you still want to create it?"
-        );
-
-        if (!stillCreate) return;
-      }
       // create
-      task.id = newTaskId;
-      tasks.push(task);
+      submitCreateTask(tasks, task);
     }
 
     // save
