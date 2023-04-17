@@ -16,16 +16,25 @@ hr {
 
 .content {
   margin-top: 5vh;
+  margin-bottom: 6vh;
   display: flex;
   flex-direction: row;
   width: 90%;
-  height: 80vh;
+  height: 75vh;
   justify-content: space-around;
 }
 
 .section {
   width: 40%;
   border: 2px gray solid;
+}
+
+.footer{
+  display: flex;
+  position: absolute;
+  bottom: 3vh;
+  border-top: 2px gray solid;
+  width: 100%;
 }
 
 .arrow-section {
@@ -37,9 +46,19 @@ hr {
 }
 
 .header {
-  margin-top: 8px;
   display: flex;
   justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.mode-status {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: white;
+  color: #0e0d0d;
+  padding: 3px 10px;
 }
 
 .centered {

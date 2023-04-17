@@ -12,6 +12,7 @@ const updateElements = (task = null) => {
   let arrowElement = document.getElementById("arrow-content");
   let formButtonElement = document.getElementById("form-button");
   let cancelLinkElement = document.getElementById("cancel-link");
+  let modeStatusElement = document.getElementById("mode-status");
 
   if (modeStorage.getValue() === EDIT_MODE) {
     modeTitleElement.innerText = `Editing Task: ${task.title}`;
@@ -19,11 +20,14 @@ const updateElements = (task = null) => {
     fillTaskForm(task);
     formButtonElement.value = "Edit";
     cancelLinkElement.classList.remove("hide");
+    modeStatusElement.innerText = "EDIT_MODE"
+    
   } else {
     modeTitleElement.innerText = "Add Task";
     arrowElement.innerText = ">";
     formButtonElement.value = "Add";
     cancelLinkElement.classList.add("hide");
+    modeStatusElement.innerText = "CREATE_MODE"
   }
 };
 
@@ -181,3 +185,9 @@ document.getElementById("clear-button").addEventListener("click", (event) => {
   localStorage.setItem("tasks", JSON.stringify([]));
   fetchAndRenderTasks();
 });
+
+document.getElementById("cancel-link").addEventListener("click", (event) => {
+  let formElement = document.getElementById("task-create-form")
+  formElement.reset();
+  modeStorage.setValue(CREATE_MODE, updateElements)
+})
