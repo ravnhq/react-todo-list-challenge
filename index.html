@@ -15,7 +15,7 @@
     <div class="container">
       <div class="content">
         <div class="section column">
-          <h2>Add Task</h2>
+          <h2 id="mode-title">Add Task</h2>
           <form class="column task-form" id="task-create-form">
             <input
               type="text"
@@ -31,18 +31,26 @@
             ></textarea>
             <select name="task-priority" class="form-element select" required>
               <option>Choose a priority</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+              <option value="1">Low</option>
+              <option value="2">Medium</option>
+              <option value="3">High</option>
             </select>
             <div class="error-messages"></div>
-            <input type="submit" value="Add" class="button" />
+            <input type="submit" value="Add" class="button" id="form-button"/>
           </form>
+          <div class="link hide" id="cancel-link">
+            Cancel
+          </div>
         </div>
-        <div class="arrow-section"><h1>></h1></div>
+        <div class="arrow-section"><h1 id="arrow-content">></h1></div>
         <div class="section column">
           <div class="column-header">
-            <h2>TODO</h2>
+            <div class="column-title">
+              <h2>TODO</h2>
+            </div>
+            <div id="clear-button">
+              Clear
+            </div>
           </div>
           <div class="column-body tasks" id="tasks-container">
           </div>
@@ -50,5 +58,6 @@
       </div>
     </div>
   </body>
+  <script src="./src/js/storage.js"></script>
   <script src="./src/js/script.js"></script>
 </html>
