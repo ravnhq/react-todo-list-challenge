@@ -1,0 +1,11 @@
+.container {
+  background-color: var(--bg-main-content);
+  padding: 20px;
+  height: 100vh;
+}
+
+.todoGrid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}

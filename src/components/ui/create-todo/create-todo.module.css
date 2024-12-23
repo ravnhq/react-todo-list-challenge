@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 500px;
+
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.inputContainer select {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid rgb(0, 0, 0, 0.4);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 32px;
+}
+
+.error {
+  font-size: 12px;
+  color: #f85040;
+}
+
+.inputContainer select:focus {
+  border-color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
