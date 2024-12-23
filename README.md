@@ -1,11 +1,12 @@
-# react-todo-list-challenge
+# Nerdery State Management Challenge
 
-Steps
-- Fork this repo to your account
+- **Live Site URL:** [React Forms Challenge](#)
 
-- Create a TODO list Vanilla JS project
+### Built With
 
-### Criterias
-- Validate form fields (inputs, textareas, checkboxes, buttons)
-- Persist errors/form values in local storage
-- Reset/clear local storage
+- React
+- TypeScript
+- Tailwind
+- React Hook Forms
+- Zod
+- Vite
