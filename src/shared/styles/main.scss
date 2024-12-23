@@ -1,0 +1,30 @@
+@use "./colors";
+@use "./fonts";
+
+.root {
+  padding: 1rem;
+}
+.body {
+  margin: 0;
+  background-color: colors.$gray-400;
+  font-family: fonts.$roboto-font-family;
+  color: colors.$dark-gray-900;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .root {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .root {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,21 @@
+@use "../../styles/colors";
+
+.box {
+  box-sizing: border-box;
+  background-color: colors.$white;
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid colors.$dark-gray-900;
+}
+.box::after {
+  content: "";
+  width: 95%;
+  height: 5px;
+  background-color: colors.$dark-gray-900;
+  bottom: -5px;
+  left: 2.5%;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  position: absolute;
+}
