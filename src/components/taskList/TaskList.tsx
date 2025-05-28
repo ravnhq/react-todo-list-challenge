@@ -1,4 +1,4 @@
-import "./TaskList.css";
+import "./taskList.css";
 import type { TaskListProps } from "../../types/types";
 import TaskItem from "./TaskItem";
 
