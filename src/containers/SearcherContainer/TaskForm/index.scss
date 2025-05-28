@@ -1,0 +1,40 @@
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  label {
+    font-weight: 500;
+  }
+
+  select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #323232;
+  }
+
+  .error {
+    color: crimson;
+    font-size: 0.85rem;
+    margin: -0.5rem 0 0.5rem 0;
+    font-weight: bold;
+  }
+
+  button {
+    padding: 0.7rem;
+    border: none;
+    border-radius: 8px;
+    background: #abdb25;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+
+    &:hover {
+      background: #c3e354;
+    }
+  }
+}

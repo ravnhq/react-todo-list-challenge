@@ -1,0 +1,64 @@
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  column-gap: 100px;
+  row-gap: 10px;
+  width: 100%;
+
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    background: #323232;
+    padding: 20px;
+    border-radius: 10px;
+    .taskInfo {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .tasksCreated {
+        font-weight: 600;
+        span {
+          text-align: center;
+          background: #c3e354;
+          padding: 2px 6px 2px 6px;
+          border-radius: 50px;
+          color: black;
+        }
+      }
+      .tasksFinished {
+        font-weight: 600;
+      }
+    }
+    .taskCreated {
+      display: flex;
+      width: 100%;
+      margin-top: 10px;
+      .itemsContainer {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 19px;
+        @media (max-width: 768px) {
+          grid-template-columns: repeat(auto-fit, 1fr);
+          gap: 1rem;
+        }
+      }
+      @media (max-width: 768px) {
+        padding: 5px;
+      }
+    }
+    @media (max-width: 768px) {
+      flex: 1 1 auto;
+      padding: 5px;
+    }
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 0px;
+  }
+}
