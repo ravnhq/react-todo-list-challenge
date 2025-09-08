@@ -1,3 +1,69 @@
-.searchbar {
+@use "variables" as v;
+
+.searchBar-container {
+  margin-top: 1rem;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.searchBar {
   position: relative;
+  display: flex;
+  align-items: center;
+  background-color: v.$color-background;
+  border: 2px solid v.$pink-color;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  svg {
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    color: v.$pink-color;
+  }
+  input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.9rem;
+    background: transparent;
+  }
+}
+
+ul {
+  margin-top: 0.5rem;
+  padding: 0;
+  list-style: none;
+  background-color: v.$color-surface;
+  border: 1px solid v.$color-border;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  max-height: 200px;
+  overflow-y: auto;
+
+  .search-item {
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    cursor: pointer;
+    &:hover {
+      background-color: v.$pink-2-color;
+      color: white;
+    }
+    .search-name {
+      font-weight: 500;
+    }
+    .search-assignee {
+      color: v.$pink-color;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .search-empty {
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: v.$color-text;
+  }
 }

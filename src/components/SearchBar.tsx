@@ -1,15 +1,16 @@
-import { useDeferredValue, useState } from "react";
+import { useState } from "react";
 import { useDebounce } from "../utils/utils";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { SearchResults } from "./SearchResults";
 
 export const SearchBar = () => {
   const [search, setSearch] = useState("");
-  const deferredSearch = useDeferredValue(search);
-  const debouncedSearch = useDebounce(deferredSearch);
+  const debouncedSearch = useDebounce(search);
+
+  console.log(debouncedSearch);
   return (
-    <div>
-      <div className="">
+    <div className="searchBar-container">
+      <div className="searchBar">
         <div>
           <MagnifyingGlassIcon />
         </div>
