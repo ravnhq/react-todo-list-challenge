@@ -1,4 +1,4 @@
-import { Calendar, Check, Pencil, User } from "lucide-react";
+import { Calendar, Check, Pencil, User, Dumbbell } from "lucide-react";
 import styles from "./card.module.scss";
 import { Tooltip } from "@radix-ui/themes";
 import { useTaskManager } from "../../store/useTaskManager";
@@ -58,8 +58,10 @@ export const Card = ({ data }: { data: DataProps }) => {
           <p className={styles.assignee}>{data.assignee}</p>
         </Tooltip>
       </div>
-
-      <p className={styles.storyPoints}>{data.storyPoints}</p>
+      <div className={styles.containerItems}>
+        <Dumbbell />
+        <p className={styles.storyPoints}>{data.storyPoints}</p>
+      </div>
     </div>
   );
 };
