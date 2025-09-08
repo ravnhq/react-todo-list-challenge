@@ -5,7 +5,7 @@ import { useTaskManager } from "../../store/useTaskManager";
 import { useMemo, useState } from "react";
 
 export const Form = () => {
-  const { getFilteredTasks, tasks } = useTaskManager();
+  const { getFilteredTasks } = useTaskManager();
   const [filterStatus, setFilterStatus] = useState<string>("");
 
   const filteredData = useMemo(() => {
@@ -19,7 +19,6 @@ export const Form = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getFilteredTasks(), filterStatus]);
 
-  console.log(tasks);
   return (
     <div className={styles.formContainer}>
       <div className={styles.formHeader}>
