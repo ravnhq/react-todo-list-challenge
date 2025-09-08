@@ -45,7 +45,6 @@ export const ModalForm = () => {
   const [open, setOpen] = useState(false);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log("Form data:", data);
     addNewTask({ ...data, done: false });
     reset();
     setOpen(false);
