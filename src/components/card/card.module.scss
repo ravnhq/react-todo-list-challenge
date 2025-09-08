@@ -1,0 +1,133 @@
+@use "../../styles/globals" as *;
+
+.cardContainer {
+  height: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  border-bottom: 1px solid $gray;
+  gap: 0.5rem;
+
+  @media (min-width: 880px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.cardContainer p {
+  height: auto;
+  width: auto;
+}
+
+.circleCheckbox {
+  width: 30px;
+  height: 30px;
+}
+.circleCheckbox input {
+  display: none;
+  height: auto;
+}
+
+.circleCheckbox span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #333;
+  border-radius: 50%; /* círculo */
+  margin-right: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.circleCheckbox input:checked + span {
+  background-color: #333;
+  color: white; /* relleno cuando está marcado */
+}
+
+.storyPoints {
+  margin-right: 15px;
+  color: $gray;
+}
+
+.dueDate {
+}
+
+.assignee {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.priority {
+  height: 25px;
+  background-color: red;
+  max-width: 5rem;
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.priorityUrgent {
+  height: 25px;
+  background-color: $red;
+  max-width: 5rem;
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.priorityHigh {
+  height: 25px;
+  background-color: $orange;
+  max-width: 5rem;
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.priorityNormal {
+  height: 25px;
+  background-color: $yellow;
+  max-width: 5rem;
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.priorityLow {
+  height: 25px;
+  background-color: $green;
+  max-width: 5rem;
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskName {
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.checkIcon {
+  height: auto;
+}
