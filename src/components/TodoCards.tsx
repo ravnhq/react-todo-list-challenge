@@ -1,174 +1,89 @@
-import React from 'react';
+import { useTaskContext } from '../contexts/TaskContext';
 import type { Task } from '../types/Task';
 import './styles/Todocards.css';
-
-const PriorityBadge = ({
-  isCompleted,
-  priority,
-}: {
-  isCompleted: boolean;
-  priority: string;
-}) => {
-  return (
-    <span
-      className={`priority-badge priority-${isCompleted ? 'done' : priority}`}
-    >
-      {isCompleted ? 'DONE' : priority.toUpperCase()}
-    </span>
-  );
-};
-
-const StoryPointBadge = ({ points }: { points: number }) => {
-  return <div className="story-point-badge">{points} SP</div>;
-};
-
-const AssignedPeople = ({ people }: { people: string[] }) => {
-  const displayPeople = people.slice(0, 3);
-  const remainingCount = people.length - 3;
-
-  return (
-    <div className="assigned-people">
-      {displayPeople.map((person, index) => (
-        <div key={index} className="person-avatar">
-          {person.charAt(0).toUpperCase()}
-        </div>
-      ))}
-      {remainingCount > 0 && (
-        <div className="person-avatar person-avatar-more">
-          +{remainingCount}
-        </div>
-      )}
-    </div>
-  );
-};
-
-export const TodoCard = ({
-  task,
-  onToggle,
-}: {
-  task: Task;
-  onToggle?: (taskId: number) => void;
-}) => {
-  const handleCardClick = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).tagName === 'INPUT') return;
-    onToggle?.(task.id);
-  };
-
-  const handleCheckboxChange = () => {
-    onToggle?.(task.id);
-  };
-
-  return (
-    <div
-      className="todo-card"
-      onClick={handleCardClick}
-      style={{ cursor: 'pointer' }}
-    >
-      <div className="todo-checkbox-section">
-        <input
-          id={`todo-checkbox-${task.id}`}
-          type="checkbox"
-          className="todo-checkbox"
-          checked={task.completed}
-          onChange={handleCheckboxChange}
-        />
-      </div>
-
-      <div className="todo-content">
-        <div className="todo-top-row">
-          <h3 className="todo-title">{task.title}</h3>
-          <StoryPointBadge points={task.storyPoints} />
-        </div>
-
-        <div className="todo-bottom-row">
-          <PriorityBadge
-            priority={task.priority}
-            isCompleted={task.completed}
-          />
-          <AssignedPeople people={task.assignedTo} />
-        </div>
-      </div>
-    </div>
-  );
-};
+import { TodoCard } from './TodoCard';
 
 let fakeTasks: Task[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Stretch everyday for 15 mins',
     completed: false,
     priority: 'low',
-    dueDate: new Date(2023, 11, 25),
+    dueDate: new Date(2023, 11, 25).toDateString(),
     storyPoints: 3,
     assignedTo: ['Alice', 'Bob', 'Eve', 'Frank', 'Grace'],
+    createdAt: new Date(2023, 11, 25).toDateString(),
+    updatedAt: new Date(2023, 11, 25).toDateString(),
   },
   {
-    id: 2,
+    id: '2',
     title: 'Task 2',
     completed: true,
     priority: 'normal',
-    dueDate: new Date(2023, 11, 26),
+    createdAt: new Date(2023, 11, 26).toDateString(),
     storyPoints: 5,
     assignedTo: ['Charlie'],
+    dueDate: new Date(2023, 11, 26).toDateString(),
+    updatedAt: new Date(2023, 11, 26).toDateString(),
   },
   {
-    id: 3,
+    id: '3',
     title: 'Task 3',
     completed: false,
     priority: 'urgent',
-    dueDate: new Date(2023, 11, 27),
+    dueDate: new Date(2023, 11, 27).toDateString(),
     storyPoints: 2,
     assignedTo: ['David', 'Eve'],
-  },
-  {
-    id: 4,
-    title: 'Task 4',
-    completed: true,
-    priority: 'high',
-    dueDate: new Date(2023, 11, 26),
-    storyPoints: 5,
-    assignedTo: ['Charlie'],
-  },
-  {
-    id: 5,
-    title: 'Task 5',
-    completed: false,
-    priority: 'urgent',
-    dueDate: new Date(2023, 11, 27),
-    storyPoints: 2,
-    assignedTo: ['David', 'Eve'],
+    createdAt: new Date(2023, 11, 27).toDateString(),
+    updatedAt: new Date(2023, 11, 27).toDateString(),
   },
 ];
 
 export const TodoCards = ({
-  initialTasks = fakeTasks,
-  onToggleTask,
+  taskOption,
 }: {
-  initialTasks?: Task[];
-  onToggleTask?: (taskId: number, newCompletedState: boolean) => void;
+  taskOption: 'today' | 'all' | 'tomorrow' | 'week';
 }) => {
-  const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
+  const {
+    tasks,
+    toggleTask,
+    getTodayTasks,
+    getThisWeekTasks,
+    getTomorrowTasks,
+  } = useTaskContext();
 
-  const handleToggle = (taskId: number) => {
-    setTasks(prevTasks => {
-      const updatedTasks = prevTasks.map(task =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
-      );
+  //TODO: temporal just to test, remove it later
+  const totalTasks = [...fakeTasks, ...tasks];
 
-      const updatedTask = updatedTasks.find(task => task.id === taskId);
-      if (updatedTask) {
-        onToggleTask?.(taskId, updatedTask.completed);
-      }
+  const getFilteredTasks = () => {
+    switch (taskOption) {
+      case 'today':
+        return getTodayTasks();
+      case 'tomorrow':
+        return getTomorrowTasks();
+      case 'week':
+        return getThisWeekTasks();
+      case 'all':
+      default:
+        return totalTasks;
+    }
+  };
 
-      console.log(`Toggling task ${taskId}`);
-      return updatedTasks;
-    });
+  const filteredTasks = getFilteredTasks();
+
+  const handleToggle = (taskId: string) => {
+    toggleTask(taskId);
   };
 
   return (
     <div className="todo-cards">
-      {tasks.map(task => (
-        <TodoCard key={task.id} task={task} onToggle={handleToggle} />
+      {filteredTasks.map(task => (
+        <TodoCard
+          isSmallCard={taskOption === 'tomorrow' || taskOption === 'week'}
+          key={task.id}
+          task={task}
+          onToggle={handleToggle}
+        />
       ))}
     </div>
   );

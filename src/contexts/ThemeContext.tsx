@@ -23,15 +23,12 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const savedTheme = localStorage.getItem('darkTheme');
     if (savedTheme) {
-      console.log('savedTheme', savedTheme);
-
       const isDark = savedTheme === 'true';
       setIsDarkTheme(isDark);
     }
   }, []);
 
   useEffect(() => {
-    console.log('isDarkTheme changed:', isDarkTheme);
     localStorage.setItem('darkTheme', isDarkTheme.toString());
     document.documentElement.setAttribute(
       'data-theme',

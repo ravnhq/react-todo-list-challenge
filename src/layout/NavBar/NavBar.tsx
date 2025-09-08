@@ -9,6 +9,8 @@ import {
   CalendarIcon,
   FileIcon,
 } from '@radix-ui/react-icons';
+import { useEffect, useState } from 'react';
+import { useTaskContext } from '../../contexts/TaskContext';
 
 const NavLink = ({
   to,
@@ -37,7 +39,15 @@ const NavLink = ({
 };
 
 export const NavBar = () => {
+  const [pendingTasks, setPendingTasks] = useState(0);
   const { isDarkTheme, toggleTheme } = useTheme();
+  const { tasks } = useTaskContext();
+
+  useEffect(() => {
+    const count = tasks.filter(task => !task.completed).length;
+    setPendingTasks(count);
+  }, [tasks]);
+
   return (
     <aside className="navbar-container">
       <div className="nav-content">
@@ -70,7 +80,7 @@ export const NavBar = () => {
                   <ListBulletIcon />
                   <span>Home</span>
                 </div>
-                <div className="nav-count">+15</div>
+                <div className="nav-count">{pendingTasks}</div>
               </div>
             </NavLink>
             <NavLink to="/tasks/calendar">
@@ -79,7 +89,7 @@ export const NavBar = () => {
                   <CalendarIcon />
                   <span>Calendar</span>
                 </div>
-                <div className="nav-count">0</div>
+                <div className="nav-count">{pendingTasks}</div>
               </div>
             </NavLink>
             <NavLink to="/tasks/sticker-wall">
@@ -88,7 +98,7 @@ export const NavBar = () => {
                   <FileIcon />
                   <span>Sticker Wall</span>
                 </div>
-                <div className="nav-count">0</div>
+                <div className="nav-count">{pendingTasks}</div>
               </div>
             </NavLink>
             <NavLink to="/tasks/new">
@@ -97,7 +107,6 @@ export const NavBar = () => {
                   <FileIcon />
                   <span>New Task</span>
                 </div>
-                <div className="nav-count">0</div>
               </div>
             </NavLink>
           </div>

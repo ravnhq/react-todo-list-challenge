@@ -97,15 +97,19 @@
 }
 
 .tomorrow-tasks {
+  height: 90%;
+  overflow-y: hidden;
 }
 
 .week-tasks {
+  height: 90%;
+  overflow-y: hidden;
 }
 
 /* ***************** */
 /* HOME PAGE STYLING */
-.home-container {
-  height: 90%;
+.new-task-container {
+  height: 100%;
 }
 
 .newtodo-content {
