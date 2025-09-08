@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --background-color: #fff;
@@ -10,7 +10,7 @@
   --p-color: #121212;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --background-color: #343951;
   --background-nav-color: #464d6e;
   --background-hover-color: rgba(217, 217, 217, 0.4);
@@ -26,7 +26,7 @@ body {
   padding: 0;
   height: 100%;
   overflow-x: hidden;
-  font-family: "Oswald";
+  font-family: 'Oswald';
 
   transition: background-color 300ms ease-in-out;
 }

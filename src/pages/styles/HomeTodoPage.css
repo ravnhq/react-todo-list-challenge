@@ -1,0 +1,101 @@
+/* ***************** */
+/* HOME PAGE STYLING */
+.home-container {
+  height: 90%;
+}
+
+.homepage-content {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60px calc(80% - 60px) 32%;
+}
+
+.homepage-content h1 {
+  color: var(--title-color);
+}
+
+.todays-tasks-container {
+  height: 94%;
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  padding-left: 5%;
+  margin-top: 2%;
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+.all-tasks-container {
+  height: 100%;
+  display: grid;
+  column-gap: 4%;
+  grid-template-columns: 48% 48%;
+  margin-top: 2%;
+}
+
+.note-background {
+  background-image: url(../../assets/notepad.png);
+  background-position: top;
+  background-size: cover;
+  padding: 4%;
+  padding-top: 10%;
+}
+
+.today-tasks {
+  overflow-y: scroll;
+}
+
+.today-tasks-header {
+  height: 100%;
+  display: flex;
+}
+.today-tasks-header h2 {
+  color: var(--title-color);
+  margin-top: 1.5%;
+  font-size: 2.3rem;
+  font-weight: 400;
+  margin-right: 15px;
+}
+.new-task-button {
+  align-self: end;
+  display: flex;
+  align-items: center;
+  padding: 0 1.2%;
+  margin-bottom: 8px;
+
+  background-color: transparent;
+  font-size: 0.86em;
+  border: 1px solid var(--title-color);
+  color: var(--title-color);
+  height: 60%;
+  border-radius: 10px;
+}
+.new-task-button:hover {
+  scale: 1.02;
+  background-color: aliceblue;
+  transition: scale 200ms ease-in-out;
+}
+
+.new-task-button:active {
+  scale: 1;
+  background-color: #f8f8f8;
+  transition: scale 100ms ease-in-out;
+}
+
+.new-task-button > :first-child {
+  display: flex;
+  width: 20px;
+  height: 100%;
+  aspect-ratio: 1/1;
+  margin-right: 10px;
+  padding: 0;
+}
+
+.tomorrow-tasks {
+  height: 90%;
+  overflow-y: hidden;
+}
+
+.week-tasks {
+  height: 90%;
+  overflow-y: hidden;
+}

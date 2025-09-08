@@ -11,7 +11,14 @@ export const todoNewTaskSchema = z.object({
     .number()
     .min(1, 'Story points must be at least 1')
     .max(20, 'Story points must be at most 20'),
-  assignedTo: z.array(z.string()).min(1, 'At least one assignee is required'),
+  assignedTo: z
+    .array(
+      z
+        .string()
+        .min(1, 'Name cannot be empty')
+        .regex(/^[a-zA-Z\s]+$/, 'Name must contain only letters and spaces')
+    )
+    .min(1, 'At least one assignee is required'),
   dueDate: z.string().refine(date => {
     const selectedDate = new Date(date);
     const today = new Date();

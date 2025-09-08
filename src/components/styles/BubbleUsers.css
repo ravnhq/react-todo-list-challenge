@@ -1,0 +1,47 @@
+/* ASSIGNES */
+.assigned-users {
+  display: flex;
+  column-gap: 5px;
+  flex-wrap: wrap;
+  row-gap: 5px;
+}
+
+.assignee-bubble {
+  display: flex;
+  background-color: rgba(99, 102, 241, 0.3);
+  width: fit-content;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  padding: 2% 4%;
+  flex-shrink: 0;
+}
+.assigned-bubble input {
+  border: none;
+  background: transparent;
+  outline: none;
+
+  width: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.remove-assignee {
+  width: 20px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 0;
+  font-size: 0.8rem;
+
+  transition: scale 200ms ease-in-out;
+}
+
+.remove-assignee:hover {
+  scale: 1.05;
+  background-color: white;
+  cursor: pointer;
+}
+
+.remove-assignee:active {
+  scale: 0.95;
+}

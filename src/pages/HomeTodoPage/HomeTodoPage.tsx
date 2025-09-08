@@ -1,8 +1,9 @@
-import { TodoCards } from '../../components/TodoCards';
+import { TodoCardList } from '../../components/TodoCardList';
 import { useAnimatedNavigation } from '../../hook/useAnimatedNavigation';
 import { PlusCircledIcon } from '@radix-ui/react-icons';
 
 import '../styles/PageStyling.css';
+import '../styles/HomeTodoPage.css';
 
 export const HomeTodoPage = () => {
   const { animatedNavigate } = useAnimatedNavigation();
@@ -26,17 +27,17 @@ export const HomeTodoPage = () => {
             </button>
           </div>
           <div className="today-tasks">
-            <TodoCards taskOption="today" />
+            <TodoCardList taskOption="today" />
           </div>
         </div>
         <div className="all-tasks-container">
           <div className="note-background tomorrow-tasks">
             <h2>Tomorrow</h2>
-            <TodoCards taskOption="tomorrow" />
+            <TodoCardList taskOption="tomorrow" />
           </div>
           <div className="note-background week-tasks">
             <h2>This Week</h2>
-            <TodoCards taskOption="week" />
+            <TodoCardList taskOption="week" />
           </div>
         </div>
       </div>
