@@ -1,9 +1,9 @@
 @use "../../styles/globals" as *;
 
 .cardContainer {
-  height: 4rem;
+  height: 8rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
   border-bottom: 1px solid $gray;
@@ -11,6 +11,7 @@
 
   @media (min-width: 880px) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 4rem;
   }
 }
 
@@ -51,11 +52,8 @@
   color: $gray;
 }
 
-.dueDate {
-}
-
 .assignee {
-  max-width: 150px;
+  max-width: 100px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -130,4 +128,9 @@
 
 .checkIcon {
   height: auto;
+}
+.containerItems {
+  width: 150px;
+  display: flex;
+  gap: 10px;
 }

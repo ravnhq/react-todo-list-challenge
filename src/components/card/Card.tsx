@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Calendar, Check, Pencil, User } from "lucide-react";
 import styles from "./card.module.scss";
 import { Tooltip } from "@radix-ui/themes";
 import { useTaskManager } from "../../store/useTaskManager";
@@ -39,16 +39,26 @@ export const Card = ({ data }: { data: DataProps }) => {
           <Check className={styles.checkIcon} />
         </span>
       </label>
-      <Tooltip content={data.taskName}>
-        <p className={styles.taskName}>{data.taskName}</p>
-      </Tooltip>
+      <div className={styles.containerItems}>
+        <Pencil />
+        <Tooltip content={data.taskName}>
+          <p className={styles.taskName}>{data.taskName}</p>
+        </Tooltip>
+      </div>
       <div className={getPriorityClassNameAlt(data.priority)}>
         <p>{data.priority}</p>
       </div>
-      <p>{data.dueDate.toLocaleDateString()}</p>
-      <Tooltip content={data.assignee}>
-        <p className={styles.assignee}>{data.assignee}</p>
-      </Tooltip>
+      <div className={styles.containerItems}>
+        <Calendar />
+        <p>{data.dueDate.toLocaleDateString()}</p>
+      </div>
+      <div className={styles.containerItems}>
+        <User />
+        <Tooltip content={data.assignee}>
+          <p className={styles.assignee}>{data.assignee}</p>
+        </Tooltip>
+      </div>
+
       <p className={styles.storyPoints}>{data.storyPoints}</p>
     </div>
   );
