@@ -1,3 +1,15 @@
+import { motion } from "framer-motion";
+
 export const NewTodoPage = () => {
-  return <div>New Todo Page</div>;
+  return (
+    <motion.div
+      className="page-container"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+    >
+      New Todo Page
+    </motion.div>
+  );
 };

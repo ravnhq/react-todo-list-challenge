@@ -133,6 +133,7 @@
 
 .nav-link.active {
   background-color: var(--background-active-link-color);
+  color: black;
 }
 
 .nav-item {
@@ -148,6 +149,8 @@
   padding: 0 8px;
   border-radius: 50px;
   font-size: 0.6rem;
+
+  color: black;
 }
 
 .nav-link.active .nav-item > :not(:first-child) {
