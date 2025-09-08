@@ -1,14 +1,14 @@
-import "../styles/NavBar.css";
-import { useAnimatedNavigation } from "../../hook/useAnimatedNavigation";
-import { useLocation } from "react-router-dom";
-import { useTheme } from "../../contexts/ThemeContext";
+import '../styles/NavBar.css';
+import { useAnimatedNavigation } from '../../hook/useAnimatedNavigation';
+import { useLocation } from 'react-router-dom';
+import { useTheme } from '../../contexts/ThemeContext';
 import {
   DragHandleHorizontalIcon,
   MagnifyingGlassIcon,
   ListBulletIcon,
   CalendarIcon,
   FileIcon,
-} from "@radix-ui/react-icons";
+} from '@radix-ui/react-icons';
 
 const NavLink = ({
   to,
@@ -24,12 +24,12 @@ const NavLink = ({
   return (
     <a
       href={to}
-      onClick={(e) => {
+      onClick={e => {
         e.preventDefault();
         animatedNavigate(to);
       }}
-      className={`nav-link ${isActive ? "active" : ""}`}
-      aria-current={isActive ? "page" : undefined}
+      className={`nav-link ${isActive ? 'active' : ''}`}
+      aria-current={isActive ? 'page' : undefined}
     >
       {children}
     </a>
@@ -91,6 +91,15 @@ export const NavBar = () => {
                 <div className="nav-count">0</div>
               </div>
             </NavLink>
+            <NavLink to="/tasks/new">
+              <div className="nav-item">
+                <div className="nav-icon">
+                  <FileIcon />
+                  <span>New Task</span>
+                </div>
+                <div className="nav-count">0</div>
+              </div>
+            </NavLink>
           </div>
         </nav>
 
@@ -148,7 +157,7 @@ export const NavBar = () => {
           <button
             onClick={toggleTheme}
             className="theme-button"
-            aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} theme`}
+            aria-label={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
           >
             {isDarkTheme ? (
               // Sun icon for switching to light mode

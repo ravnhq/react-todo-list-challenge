@@ -1,12 +1,14 @@
 .page-container {
   width: 97%;
-  height: 90%;
   max-height: auto;
   padding: 3% 0 5% 0;
 }
 
 /* ***************** */
 /* HOME PAGE STYLING */
+.home-container {
+  height: 90%;
+}
 
 .homepage-content {
   height: 100%;
@@ -19,9 +21,13 @@
 }
 
 .todays-tasks-container {
-  height: 100%;
-  width: 97%;
-  padding-right: 3%;
+  height: 94%;
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  padding-left: 5%;
+  margin-top: 2%;
+  border-radius: 30px;
+  border: 1px solid black;
 }
 
 .all-tasks-container {
@@ -40,26 +46,17 @@
   padding-top: 10%;
 }
 
-.todays-tasks-container {
-  height: 95%;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  padding-left: 5%;
-  margin-top: 2%;
-  border-radius: 30px;
-  border: 1px solid black;
-}
-
 .today-tasks {
   overflow-y: scroll;
 }
 
 .today-tasks-header {
+  height: 100%;
   display: flex;
 }
 .today-tasks-header h2 {
   color: var(--title-color);
-  margin-top: 1%;
+  margin-top: 1.5%;
   font-size: 2.3rem;
   font-weight: 400;
   margin-right: 15px;
@@ -103,4 +100,17 @@
 }
 
 .week-tasks {
+}
+
+/* ***************** */
+/* HOME PAGE STYLING */
+.home-container {
+  height: 90%;
+}
+
+.newtodo-content {
+  background-color: aqua;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 60px calc(100% - 60px);
 }

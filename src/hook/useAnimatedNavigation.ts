@@ -4,7 +4,9 @@ export const useAnimatedNavigation = () => {
   const navigate = useNavigate();
 
   const animatedNavigate = (to: string) => {
-    navigate(to);
+    setTimeout(() => {
+      navigate(to);
+    }, 50);
   };
 
   return { animatedNavigate };

@@ -1,8 +1,8 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { HomeTodoPage } from "./pages/HomeTodoPage/HomeTodoPage";
-import { NewTodoPage } from "./pages/NewTodoPage/NewTodoPage";
-import { FormChallengeLayout } from "./layout/FormChallengeLayout.tsx";
-import { CalendarTodoPage } from "./pages/CalendarTodoPage/CalendarTodoPage.tsx";
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HomeTodoPage } from './pages/HomeTodoPage/HomeTodoPage';
+import { NewTodoPage } from './pages/NewTodoPage/NewTodoPage';
+import { FormChallengeLayout } from './layout/FormChallengeLayout.tsx';
+import { CalendarTodoPage } from './pages/CalendarTodoPage/CalendarTodoPage.tsx';
 
 export const FormChallengeApp = () => {
   return (

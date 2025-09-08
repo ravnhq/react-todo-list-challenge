@@ -1,15 +1,16 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 export const NewTodoPage = () => {
   return (
-    <motion.div
-      className="page-container"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3 }}
-    >
-      New Todo Page
-    </motion.div>
+    <div className="page-container">
+      <div className="newtodo-content">
+        <h1>Create a New Todo</h1>
+        <form>
+          <input type="text" placeholder="Todo title" />
+          <textarea placeholder="Todo description"></textarea>
+          <button type="submit">Add Todo</button>
+        </form>
+      </div>
+    </div>
   );
 };
