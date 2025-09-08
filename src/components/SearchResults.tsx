@@ -1,4 +1,3 @@
-import type { Task } from "../schemas/taskSchema";
 import { useTaskStore } from "../store/taskStore";
 
 type SearchResultsProps = {
