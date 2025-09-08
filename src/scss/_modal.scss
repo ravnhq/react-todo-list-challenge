@@ -1,3 +1,5 @@
+@use "variables" as v;
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -16,7 +18,16 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    width: 50%;
+    width: 40%;
+    @media (max-width: v.$breakpoint-md) {
+      width: 80%;
+      padding: 1.5rem;
+    }
+    @media (max-width: v.$breakpoint-sm) {
+      width: 95%;
+      height: auto;
+      padding: 1rem;
+    }
     .modal-header {
       display: flex;
       flex-direction: row;
@@ -25,15 +36,15 @@
       margin-bottom: 1rem;
       h2 {
         font-size: 1rem;
+        color: v.$pink-color;
+      }
+      .modal-close-button {
+        background: none;
+        border: none;
+        font-size: 0.8rem;
+        text-decoration: underline;
+        cursor: pointer;
       }
     }
-  }
-
-  .modal-close-button {
-    background: none;
-    border: none;
-    font-size: 0.8rem;
-    text-decoration: underline;
-    cursor: pointer;
   }
 }

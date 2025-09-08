@@ -1,24 +1,42 @@
 $font-stack: "Infer", sans-serif;
-$primary-color: #000000;
 $background-color: #f5f8ff;
 $line-height-base: 1.2;
 
-// Colores principales
+// Main colors
+$pink-color: #ec4899;
+$pink-2-color: #db2777;
 $color-primary: #4a90e2;
 $color-secondary: #50e3c2;
 
-// Estados
+// States
 $color-success: #7ed321;
 $color-danger: #d0021b;
 
-// Fondo  y superficie
+// Bg
 $color-background: #f5f7fa;
 $color-surface: #ffffff;
 $color-dark-bg: #2c3e50;
 
-// Texto
-$color-text: #333333;
+// Text
+$color-text: #1f2937;
 $color-muted-text: #888888;
 
 // Bordes y líneas
-$color-border: #e0e0e0;
+$color-border: #e5e7eb;
+
+//Priority colors
+$priority-urgent: #ec4899;
+$priority-high: #f59e0b;
+$priority-normal: #3b82f6;
+$priority-low: #10b981;
+
+//Bg for priority
+$priority-urgent-bg: #fce7f3;
+$priority-high-bg: #fef3c7;
+$priority-normal-bg: #dbeafe;
+$priority-low-bg: #d1fae5;
+
+//Breakpoints
+
+$breakpoint-md: 1024px;
+$breakpoint-sm: 640px;

@@ -2,14 +2,13 @@
 
 body {
   font-family: v.$font-stack;
-  color: v.$primary-color;
+  color: v.$color-text;
   background-color: v.$background-color;
   line-height: v.$line-height-base;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   min-height: 100vh;
-  overflow: hidden;
 }
 
 h2,

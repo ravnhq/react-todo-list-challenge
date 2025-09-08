@@ -13,7 +13,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit }) => {
     reset,
   } = useForm({
     resolver: zodResolver(taskSchema),
-
+    mode: "onChange",
     defaultValues: {
       completed: false,
     },
