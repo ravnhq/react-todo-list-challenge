@@ -7,20 +7,15 @@ export const TodoCardList = ({
 }: {
   taskOption: 'today' | 'all' | 'tomorrow' | 'week';
 }) => {
-  const {
-    tasks,
-    toggleTask,
-    getTodayTasks,
-    getThisWeekTasks,
-    getTomorrowTasks,
-  } = useTaskContext();
+  const { tasks, toggleTask, getThisWeekTasks, getTomorrowTasks } =
+    useTaskContext();
 
   //TODO: temporal just to test, remove it later
 
   const getFilteredTasks = () => {
     switch (taskOption) {
       case 'today':
-        return getTodayTasks();
+        return tasks;
       case 'tomorrow':
         return getTomorrowTasks();
       case 'week':
