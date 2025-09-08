@@ -7,7 +7,6 @@ export const SearchBar = () => {
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search);
 
-  console.log(debouncedSearch);
   return (
     <div className="searchBar-container">
       <div className="searchBar">
