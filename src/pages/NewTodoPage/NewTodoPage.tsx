@@ -226,7 +226,6 @@ export const NewTodoPage = () => {
                   onClick={addAssignee}
                 >
                   <PlusIcon />
-                  Add User
                 </button>
               </div>
               {errors.assignedTo && (

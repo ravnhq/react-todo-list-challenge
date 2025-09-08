@@ -27,7 +27,13 @@
 }
 
 .remove-assignee {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+
   width: 20px;
+  height: 20px;
   aspect-ratio: 1/1;
   border-radius: 50%;
   border: 0;
@@ -44,4 +50,14 @@
 
 .remove-assignee:active {
   scale: 0.95;
+}
+
+.add-assignee-btn {
+  display: flex;
+  font-size: 1.4rem;
+  padding: 1%;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  border: 1px solid black;
+  margin-top: 5px;
 }
