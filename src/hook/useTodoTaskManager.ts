@@ -35,7 +35,7 @@ export const useTaskManager = () => {
   const addTask = (taskData: Omit<Task, 'id' | 'createdAt' | 'updatedAt'>) => {
     const newTask: Task = {
       ...taskData,
-      id: nanoid(), // Generate new ID for each task
+      id: nanoid(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
