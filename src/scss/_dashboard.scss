@@ -1,0 +1,61 @@
+@use "variables" as v;
+
+.dashboard {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 7rem;
+  .dashboardContent {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 2rem;
+    padding: 1rem;
+    overflow-y: auto;
+    section {
+      border-radius: 14px;
+      padding: 1rem;
+      border: 1px solid v.$color-border;
+      .sectionHeader {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        .section-name {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          span {
+            &.section-label {
+              font-size: 1rem;
+              font-weight: 500;
+              margin-left: 0.3rem;
+            }
+          }
+        }
+        button {
+          &.btn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            .btn-label {
+              font-size: 0.8rem;
+              margin-left: 0.3rem;
+            }
+          }
+        }
+      }
+      .section-date {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        span {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
