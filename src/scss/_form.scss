@@ -1,0 +1,60 @@
+@use "variables" as v;
+
+.form {
+  padding: 1.5rem;
+  border: 1px solid v.$color-border;
+  .form-group {
+    margin-bottom: 1rem;
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: v.$color-text;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid v.$color-border;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: border-color 0.2s ease;
+      box-sizing: border-box;
+      &:focus {
+        outline: none;
+        border-color: v.$color-primary;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      &::placeholder {
+        font-size: 0.85rem;
+        color: v.$color-muted-text;
+      }
+
+      &:disabled {
+        background-color: v.$color-background;
+        cursor: not-allowed;
+      }
+    }
+
+    .error {
+      color: v.$color-danger;
+      margin-top: 0.25rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  button {
+    background-color: v.$pink-color;
+    padding: 0.5rem 1.4rem;
+    color: v.$color-surface;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background-color: v.$pink-2-color;
+    }
+  }
+}

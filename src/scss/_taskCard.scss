@@ -1,0 +1,107 @@
+@use "variables" as v;
+
+.task-card {
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid v.$color-border;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background: v.$color-surface;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  &.completed {
+    .task-card__title {
+      text-decoration: line-through;
+      color: v.$color-muted-text;
+    }
+  }
+
+  &__main {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &__checkbox {
+    accent-color: v.$pink-color;
+    margin-right: 0.75rem;
+    margin-top: 0.25rem;
+    transform: scale(0.8);
+    cursor: pointer;
+    &:hover {
+      accent-color: v.$pink-2-color;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: v.$color-text;
+  }
+
+  &__priority {
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    &.urgent {
+      background: v.$priority-urgent-bg;
+      color: v.$priority-urgent;
+    }
+
+    &.high {
+      background: v.$priority-high-bg;
+      color: v.$priority-high;
+    }
+
+    &.normal {
+      background: v.$priority-normal-bg;
+      color: v.$priority-normal;
+    }
+
+    &.low {
+      background: v.$priority-low-bg;
+      color: v.$priority-low;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: v.$color-text;
+    flex-wrap: wrap;
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      svg {
+        width: 14px;
+        height: 14px;
+        color: v.$pink-color;
+      }
+    }
+  }
+}
