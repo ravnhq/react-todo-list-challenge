@@ -5,7 +5,14 @@ import { taskSchema, type TaskFormData } from "../schemas/taskSchema";
 type TaskFormProps = {
   onSubmit: (data: TaskFormData) => void;
 };
-export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit }) => {
+
+const priorities = [
+  { value: "", label: "Select priority" },
+  { value: "High", label: "High" },
+  { value: "Normal", label: "Normal" },
+  { value: "Low", label: "Low" },
+];
+export const TaskForm = ({ onSubmit }: TaskFormProps) => {
   const {
     register,
     handleSubmit,
@@ -35,11 +42,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSubmit }) => {
       <div className="form-group">
         <label>Priority</label>
         <select {...register("priority")}>
-          <option value="">Select priority</option>
-          <option value="Urgent">Urgent</option>
-          <option value="High">High</option>
-          <option value="Normal">Normal</option>
-          <option value="Low">Low</option>
+          {priorities.map((i) => {
+            return <option value={i.value}>{i.label}</option>;
+          })}
         </select>
         {errors.priority && <p className="error">{errors.priority.message}</p>}
       </div>

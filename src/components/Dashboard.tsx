@@ -3,6 +3,7 @@ import completedIcon from "../assets/completed-task-icon.svg";
 import { useTaskStore } from "../store/taskStore";
 import { TaskCard } from "./TaskCard";
 import { PlusIcon } from "@radix-ui/react-icons";
+import type { Task } from "../schemas/taskSchema";
 
 type DashboardProps = {
   onAddTaskClick: () => void;
@@ -11,8 +12,21 @@ type DashboardProps = {
 export const Dashboard = ({ onAddTaskClick }: DashboardProps) => {
   const tasks = useTaskStore((state) => state.tasks);
 
-  const activeTasks = tasks.filter((t) => !t.completed);
-  const completedTasks = tasks.filter((t) => t.completed);
+  //const activeTasks = tasks.filter((t) => !t.completed);
+  //const completedTasks = tasks.filter((t) => t.completed);
+
+  const { activeTasks, completedTasks } = tasks.reduce(
+    (acc: { activeTasks: Task[]; completedTasks: Task[] }, task) => {
+      if (task.completed) {
+        acc.completedTasks.push(task);
+      } else {
+        acc.activeTasks.push(task);
+      }
+      return acc;
+    },
+    { activeTasks: [] as Task[], completedTasks: [] as Task[] }
+  );
+
   return (
     <div className="dashboard">
       <div className="dashboardContent">
