@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --background-color: #fff;
+  --background-nav-color: #f4f4f4;
+  --background-hover-color: rgba(217, 217, 217, 0.4);
+  --background-active-link-color: #dfdfdf;
+  --title-color: #000;
+  --p-color: #121212;
+}
+
+[data-theme='dark'] {
+  --background-color: #343951;
+  --background-nav-color: #464d6e;
+  --background-hover-color: rgba(217, 217, 217, 0.4);
+  --background-active-link-color: #dfdfdf;
+  --title-color: #fff;
+  --p-color: #f8f8f8;
+}
+
+html,
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Oswald';
+
+  transition: background-color 300ms ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar-container {
+  max-width: 350px;
+  min-height: calc(100dvh - 52px);
+  overflow: hidden;
+  padding: 0 0 0 4%;
+  border-right: 1px solid #d4d3d3;
+}
+
+.main-container {
+  max-height: calc(100dvh - 52px);
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .app-content {
+    grid-template-columns: 50px 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  .app-content {
+    grid-template-columns: 350px 1fr;
+  }
+}
